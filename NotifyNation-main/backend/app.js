@@ -14,7 +14,9 @@ var app = express();
 
 
 // Middleware setup
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:3000']
+}));
 app.use(bodyparser.json());
 app.use(logger('dev'));
 app.use(express.json());
