@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const FirstRoutes = require("./Routes/FirstRoutes");
 var dotenv = require("dotenv");
+const { error } = require('console');
 
 var app = express();
 
@@ -29,8 +30,14 @@ mongoose.connect(process.env.SMTP_link)
     console.error('MongoDB connection error:');
 })
 // Routes setup
-app.use("/", FirstRoutes);
-
+app.use("/", FirstRoutes );
+app.get('/', (req, res) => {
+ res.send({
+    activestatus: true,
+    error: false,
+    message: "Server is running"
+ })
+}),
 // Fallback route for 404
 app.use(function(req, res, next) {
     next(createError(404));
