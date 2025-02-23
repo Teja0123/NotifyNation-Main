@@ -30,7 +30,7 @@ mongoose.connect(process.env.SMTP_link)
     console.error('MongoDB connection error:');
 })
 // Routes setup
-app.use("/", FirstRoutes );
+app.use("/api", FirstRoutes );
 app.get('/', (req, res) => {
  res.send({
     activestatus: true,
