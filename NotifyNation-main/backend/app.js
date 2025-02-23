@@ -29,7 +29,7 @@ mongoose.connect(process.env.SMTP_link)
     console.error('MongoDB connection error:');
 })
 // Routes setup
-app.use("/", FirstRoutes);
+app.use("/api", FirstRoutes);
 
 // Fallback route for 404
 app.use(function(req, res, next) {
